@@ -1,22 +1,28 @@
-const countriesContainer = document.querySelector(".countries-container");
+const countriesContainer = document.querySelector(".container-countries");
 
-fetch("https://restcountries.com/v3.1/all")
+
+fetch("https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital")
   .then((res) => res.json())
   .then((data) => {
+    // console.log(data); 
+
     data.forEach((country) => {
       console.log(country);
       const countryCard = document.createElement("a");
-      countryCard.classList.add("countryCard");
+      countryCard.classList.add("country-card");
+      countryCard.href = `details.html?name=${country.name.common}`; 
+
       countryCard.innerHTML = `
-            <img src="https://flagcdn.com/de.svg" alt="flag">
+            <img src="${country.flags.svg}" alt="Bandeira de ${country.name.common}">
             <div class="card-content">
-                <h3 class="card-title">Alemanha</h3>
-                <p><b>Populacao:</b>83,491,249</p>
-                <p><b>Continente:</b>Europa</p>
-                <p><b>Capital:</b>Berlim</p>
+                <h3 class="card-title">${country.name.common}</h3>
+                <p><b>População: </b>${country.population.toLocaleString('pt-BR')}</p>
+                <p><b>Continente: </b>${country.region}</p>
+                <p><b>Capital: </b>${country.capital?.[0] || 'Unavailable'}</p>
             </div>
         `;
 
       countriesContainer.append(countryCard);
     });
-  });
+  })
+;
