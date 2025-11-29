@@ -1,11 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PaísesDEV</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="details.js" defer></script>
 </head>
+
 <body>
-    
+    <header>
+        <div class="header-container">
+            <h1 class="title">Explorador de Países</h1>
+            <nav class="main-nav">
+                <a href="favorites.html" class="nav-link" id="favorites-link">Favoritos</a>
+                <a href="about.html" class="nav-link" id="about-link">Sobre</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <a href="index.html" class="back-button">Início</a>
+        <div class="country-details">
+            <img src="https://flagcdn.com/de.svg" alt="flag">
+            <div class="details-text-container">
+                <h1>Alemanha</h1>
+                <div class="details-text">
+                    <p><b>Nome oficial:</b></p>
+                    <p><b>População:</b></p>
+                    <p><b>Continente:</b></p>
+                    <p><b>Subcontinente:</b></p>
+                    <p><b>Capital:</b></p>
+                    <p><b>Moedas:</b></p>
+                    <p><b>Idiomas:</b></p>
+                    <p><b>Extensão territorial:</b></p>
+                    <p><b>Domínios da Internet:</b></p>
+                </div>
+                <div class="border-countries">
+                    <p><b>Fronteiras:</b> <a href="#">Itália</a> <a href="#">Japão</a></p>
+                    <!--Seria interessante fazer dessas fronteiras botões clicáveis que
+                    redirecionam pra aba de detalhes deles
+                    -->
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
+
 </html>
