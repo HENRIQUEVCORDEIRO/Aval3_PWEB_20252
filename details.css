@@ -1,0 +1,167 @@
+/* ============= RESET BÁSICO ============= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  margin-left: 20px;
+  font-weight: 600;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+/* Botão "Início" (Back) */
+.back-button {
+  display: inline-block;
+  padding: 8px 18px;
+  margin: 10px 0 30px;
+  background-color: #fff;
+  color: #333;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.back-button:hover {
+  background-color: #f5f5f5;
+}
+
+/* Container geral da tela de detalhes:
+   bandeira à esquerda, texto à direita */
+.country-details {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap; /* pra quebrar bonito no celular */
+}
+
+/* Bandeira grande */
+.country-details img {
+  width: 420px;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+}
+
+/* Container de texto à direita */
+.details-text-container {
+  flex: 1;
+  min-width: 260px;
+}
+
+/* Título com nome do país */
+.details-text-container h1 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* Bloco das informações (grid com colunas) */
+.details-text {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 10px 40px;
+  margin-bottom: 25px;
+}
+
+/* Cada linha de informação */
+.details-text p {
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+/* Label em negrito ("População:", "Região:", etc.) */
+.details-text b {
+  font-weight: 700;
+}
+
+/* Valor dinâmico que o JS coloca no span */
+.details-text span {
+  margin-left: 4px;
+  color: #555;
+}
+
+/* ============= FRONTEIRAS ============= */
+
+.border-countries {
+  font-size: 0.95rem;
+  margin-top: 10px;
+}
+
+/* JS botões/links para fronteiras*/
+.border-countries button,
+.border-countries a {
+  display: inline-block;
+  padding: 6px 12px;
+  margin: 6px 6px 0 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.border-countries button:hover,
+.border-countries a:hover {
+  background-color: #f5f5f5;
+}
+
+/* ============= RESPONSIVIDADE ============= */
+
+@media (max-width: 768px) {
+  .country-details {
+    flex-direction: column;
+  }
+
+  .details-text {
+    grid-template-columns: 1fr;
+  }
+
+  .details-text-container h1 {
+    margin-top: 20px;
+  }
+}
