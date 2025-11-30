@@ -1,0 +1,149 @@
+:root {
+  --bg: #f2f2f2;
+  --surface: #fff;
+  --text: #333;
+  --border: #ddd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: var(--surface);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.main-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+/* ====== ÁREA SOBRE A EQUIPE ====== */
+#screen-about {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%;
+}
+
+#screen-about > h1 {
+  font-size: 1.7rem;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+/* GRID dos membros */
+#cards-team {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  justify-items: center;
+}
+
+/* CARD de cada membro */
+.card-member {
+  background-color: var(--surface);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+/* Ícone do 👤 */
+.card-member figure {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+}
+
+.card-member h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.card-member p {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* ====== FOOTER ====== */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 1.5rem 0;
+  margin-top: auto;
+  width: 100%;
+  text-align: center;
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 700px) {
+  #cards-team {
+    grid-template-columns: 1fr;
+  }
+
+  .country-details img {
+    width: 100%;
+  }
+
+  .card-member {
+    width: 90%;
+  }
+}
