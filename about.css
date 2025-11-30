@@ -1,0 +1,132 @@
+:root {
+  --bg: #0a1218;
+  --surface: #111c24;
+  --surface-light: #16232c;
+  --text: #e2e8f0;
+  --text-muted: #9ca3af;
+  --border: #1f2f38;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========= HEADER ==========*/
+header {
+  background-color: var(--surface);
+  width: 100%;
+  padding: 15px 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.main-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 18px;
+  color: var(--text);
+}
+
+/* ========= SEÇÃO SOBRE A EQUIPE ========= */
+#screen-about {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#screen-about h1 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: var(--text);
+}
+
+/* Grid dos membros da equipe */
+#cards-team {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 por linha */
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Card de cada membro */
+.card-member {
+  background-color: var(--surface-light);
+  width: 280px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.card-member figure {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.card-member h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.card-member p {
+  font-size: 14px;
+  color: var(--text-muted);
+  padding: 0 10px;
+}
+
+/* ========= FOOTER ========= */
+.footer {
+  background-color: var(--surface);
+  width: 100%;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 14px;
+  border-top: 2px solid var(--border);
+  margin-top: auto;
+}
+
+.footer p {
+  color: var(--text);
+  font-weight: bold;
+}
+
+/* ========= RESPONSIVIDADE SIMPLES ========= */
+/* No celular vira 1 coluna */
+@media (max-width: 600px) {
+  #cards-team {
+    grid-template-columns: 1fr;
+  }
+
+  .card-member {
+    width: 90%;
+  }
+
+  .nav-link {
+    font-size: 16px;
+  }
+
+  .footer p {
+    font-size: 12px;
+  }
+}

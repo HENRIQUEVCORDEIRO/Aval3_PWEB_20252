@@ -1,3 +1,4 @@
+HEAD
 
 * {
     margin: 0;
@@ -104,3 +105,139 @@ header {
     margin-top: 3rem;
     font-size: 0.9rem;
 }
+=======
+:root {
+  --bg: #0a1218;
+  --surface: #111c24;
+  --surface-light: #16232c;
+  --text: #e2e8f0;
+  --text-muted: #9ca3af;
+  --border: #1f2f38;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========= HEADER ========= */
+header {
+  background-color: var(--surface);
+  width: 100%;
+  padding: 15px 0;
+}
+
+/* Coloca o título e os links na mesma linha */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Título do header */
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--text);
+}
+
+/* Navegação (Favoritos e Sobre) */
+.main-nav {
+  display: flex;
+  gap: 20px;
+}
+
+/* Links do menu */
+.nav-link {
+  font-size: 18px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ========= MAIN ========= */
+main {
+  padding: 40px 20px;
+  flex: 1;
+}
+
+/* ========= CONTAINER DOS CARDS ========= */
+.container-countries {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 colunas */
+  gap: 20px;
+  margin-top: 50px;
+}
+
+/* ========= CARD DO PAÍS ========= */
+.country-card {
+  background-color: var(--surface-light);
+  width: 280px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+/* Quando passar o mouse ele sobe um pouquinho */
+.country-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Imagem da bandeira */
+.country-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* Conteúdo dentro do card */
+.card-content {
+  padding: 15px;
+}
+
+/* Nome do país */
+.card-content h3 {
+  font-size: 20px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+/* Parágrafos do card */
+.card-content p {
+  font-size: 16px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+/* Deixa todos os <b> brancos */
+.card-content b {
+  color: var(--text);
+}
+
+/* ========= FOOTER ========= */
+.footer {
+  background-color: var(--surface);
+  width: 100%;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 14px;
+  border-top: 2px solid var(--border);
+  margin-top: 0;
+}
+
+.footer p {
+  color: var(--text);
+  font-weight: bold;
+}
+>>>>>>> 13c74147f6178d3a42e6d1ee3c342965368dea7a
