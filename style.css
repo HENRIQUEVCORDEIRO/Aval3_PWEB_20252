@@ -105,7 +105,7 @@ header {
     margin-top: 3rem;
     font-size: 0.9rem;
 }
-=======
+
 :root {
   --bg: #0a1218;
   --surface: #111c24;
@@ -240,4 +240,4 @@ main {
   color: var(--text);
   font-weight: bold;
 }
->>>>>>> 13c74147f6178d3a42e6d1ee3c342965368dea7a
+
