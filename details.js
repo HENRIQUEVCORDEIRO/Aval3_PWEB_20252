@@ -9,6 +9,7 @@ const capital = document.querySelector(".capital");
 const domain = document.querySelector(".domain");
 const currencies = document.querySelector(".currencies");
 const languages = document.querySelector(".languages");
+const countryArea = document.querySelector(".area");
 const borderCountries = document.querySelector(".border-countries");
 
 fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
@@ -23,6 +24,7 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
     subRegion.innerText = country.subregion;
     capital.innerText = country.capital?.[0];
     domain.innerText = country.tld.join(", ");
+    countryArea.innerText = country.area.toLocaleString("pt-br");
 
     if (country.capital) {
       capital.innerText = country.capital?.[0];
@@ -34,7 +36,7 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
 
     console.log(country);
     if (country.name.nativeName) {
-      nativeName.innerText = Object.values(country.name.nativeName)[0].common;
+      nativeName.innerText = Object.values(country.name.nativeName)[0].official;
     } else {
       nativeName.innerText = country.name.common;
     }
