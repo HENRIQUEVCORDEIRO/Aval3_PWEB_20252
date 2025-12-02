@@ -59,7 +59,7 @@ header {
   color: #007bff;
 }
 
-/* ====== ÁREA SOBRE A EQUIPE ====== */
+
 #screen-about {
   max-width: 1200px;
   margin: 0 auto;
@@ -73,7 +73,7 @@ header {
   text-align: center;
 }
 
-/* GRID dos membros */
+
 #cards-team {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -81,7 +81,7 @@ header {
   justify-items: center;
 }
 
-/* CARD de cada membro */
+
 .card-member {
   background-color: var(--surface);
   border-radius: 8px;
@@ -96,7 +96,7 @@ header {
   gap: 10px;
 }
 
-/* Ícone do 👤 */
+
 .card-member figure {
   font-size: 2.5rem;
   margin-bottom: 5px;
@@ -114,7 +114,7 @@ header {
   line-height: 1.4;
 }
 
-/* ====== FOOTER ====== */
+
 .footer {
   background-color: #333;
   color: #fff;
@@ -133,7 +133,7 @@ header {
   width: 100%;
 }
 
-/* RESPONSIVIDADE */
+
 @media (max-width: 700px) {
   #cards-team {
     grid-template-columns: 1fr;

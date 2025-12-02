@@ -116,7 +116,7 @@ header {
   font-size: 0.9rem;
 }
 
-/* ========== BUSCA E FILTROS ========== */
+
 
 .search-container,
 .filter-container {
@@ -124,7 +124,7 @@ header {
   margin-bottom: 12px;
 }
 
-/* barra de busca */
+
 .search-container input {
   width: 300px;
   padding: 10px 14px;
@@ -136,7 +136,7 @@ header {
   color: #333;
 }
 
-/* botão de filtros */
+
 .filter-btn {
   padding: 10px 14px;
   border-radius: 8px;
@@ -184,14 +184,12 @@ header {
   font-size: 0.9rem;
 }
 
-/* classe usada pelo JS */
+
 .hidden {
   display: none !important;
 }
 
-/* .filter-options.hidden {
-  display: block !important;
-} */
+
 
 .favorite-icon {
     position: absolute;
