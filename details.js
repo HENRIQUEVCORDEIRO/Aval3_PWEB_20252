@@ -15,6 +15,7 @@ const languages = document.querySelector(".languages");
 const countryArea = document.querySelector(".area");
 const borderCountries = document.querySelector(".border-countries");
 const favoriteBtn = document.getElementById("details-favorite-btn");
+const mapLink = document.getElementById("map-link");
 
 function updateButtonVisual(isFav) {
   if (isFav) {
@@ -29,7 +30,6 @@ function updateButtonVisual(isFav) {
 fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
   .then((res) => res.json())
   .then(([country]) => {
-
     flagImg.src = country.flags.svg;
     countryH1Name.innerText = country.name.common;
     population.innerText = country.population.toLocaleString("pt-BR");
@@ -38,6 +38,14 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
     capital.innerText = country.capital?.[0] || "Indisponível";
     domain.innerText = country.tld ? country.tld.join(", ") : "Indisponível";
     countryArea.innerText = country.area.toLocaleString("pt-br");
+
+    if (country.latlng && country.latlng.length === 2) {
+      const [latitude, longitude] = country.latlng;
+      mapLink.href = `https://maps.google.com/?q=${latitude},${longitude}`;
+      mapLink.style.display = "inline-block";
+    } else {
+      mapLink.style.display = "none";
+    }
 
     if (country.name.nativeName) {
       nativeName.innerText = Object.values(country.name.nativeName)[0].official;
