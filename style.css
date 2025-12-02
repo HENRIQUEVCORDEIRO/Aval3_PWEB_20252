@@ -192,3 +192,33 @@ header {
 /* .filter-options.hidden {
   display: block !important;
 } */
+
+.favorite-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;  
+    height: 40px;
+    background-color: rgba(30, 30, 30, 0.6); 
+    backdrop-filter: blur(4px);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff; 
+    font-size: 1.5rem; 
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    user-select: none;
+}
+
+.favorite-icon:hover {
+    background-color: rgba(0, 0, 0, 0.8); 
+    transform: scale(1.1); 
+}
+
+.favorite-icon.favorite {
+    color: #ff4757; 
+}
