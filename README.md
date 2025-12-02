@@ -15,4 +15,8 @@ Aplicação para consultar informações sobre países, servindo como terceira a
 
 ### Tecnologias utilizadas:
 
+HTML, CSS e Javascript puros.
+
 ### APIs utilizadas:
+
+REST Countries API
