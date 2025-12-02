@@ -103,3 +103,80 @@ header {
   margin-top: 3rem;
   font-size: 0.9rem;
 }
+
+/* ========== BUSCA E FILTROS ========== */
+
+.search-container,
+.filter-container {
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+/* barra de busca */
+.search-container input {
+  width: 300px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* botão de filtros */
+.filter-btn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: 0.15s ease;
+}
+
+.filter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.filter-container {
+  position: relative;
+}
+
+.filter-options {
+  position: absolute !important;
+  top: calc(100% + 8px);
+  left: 20px !important;
+  right: auto !important;
+
+  width: 220px;
+  padding: 12px;
+
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 999;
+}
+
+.filter-options label {
+  display: block;
+  padding: 4px 0;
+  font-size: 0.9rem;
+}
+
+/* classe usada pelo JS */
+.hidden {
+  display: none !important;
+}
+
+/* .filter-options.hidden {
+  display: block !important;
+} */
