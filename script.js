@@ -13,6 +13,17 @@ fetch(
     renderCountries(data);
   });
 
+function getFavorites() {
+  return JSON.parse(localStorage.getItem("favoriteCountries")) || [];
+}
+
+function isFavorite(countryName) {
+  const favorites = getFavorites();
+  return favorites.some(
+    (country) => country.name.common === countryName
+  );
+}
+
 function renderCountries(countries) {
   countriesContainer.innerHTML = "";
 
@@ -22,21 +33,51 @@ function renderCountries(countries) {
     countryCard.classList.add("country-card");
     countryCard.href = `details.html?name=${country.name.common}`;
 
+    const favoriteClass = isFavorite(country.name.common) ? " favorite" : "";
+    const heartIcon = isFavorite(country.name.common)
+      ? "&#10084;" // coração cheio
+      : "&#9825;"; // coração vazio
+
     countryCard.innerHTML = `
-            <img src="${country.flags.svg}" alt="Bandeira de ${
-      country.name.common
-    }">
+        <div class="favorite-icon${favoriteClass}">${heartIcon}</div>
+            <img src="${country.flags.svg}" alt="Bandeira de ${country.name.common
+      }">
             <div class="card-content">
                 <h3 class="card-title">${country.name.common}</h3>
                 <p><b>População: </b>${country.population.toLocaleString(
-                  "pt-BR"
-                )}</p>
+        "pt-BR"
+      )}</p>
                 <p><b>Continente: </b>${country.region}</p>
                 <p><b>Capital: </b>${country.capital?.[0] || "Indisponível"}</p>
             </div>
         `;
+
+    const btnFav = countryCard.querySelector(".favorite-icon");
+    btnFav.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      toggleHomeFavorite(country, btnFav);
+    });
     countriesContainer.append(countryCard);
   });
+}
+
+function toggleHomeFavorite(coutry, buttonElement) {
+  let favorites = getFavorites();
+  const index = favorites.findIndex(
+    (fav) => fav.name.common === coutry.name.common
+  );
+  if (index >= 0) {
+    favorites.splice(index, 1);
+    buttonElement.classList.remove("favorite");
+    buttonElement.innerHTML = "&#9825;"; // coração vazio
+  } else {
+    favorites.push(coutry);
+    buttonElement.classList.add("favorite");
+    buttonElement.innerHTML = "&#10084;"; // coração cheio
+  }
+  localStorage.setItem("favoriteCountries", JSON.stringify(favorites));
 }
 
 regionCheckboxes.forEach((checkbox) => {
