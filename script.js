@@ -28,6 +28,27 @@ document.addEventListener("click", (e) => {
   }
 });
 
+function filterData() {
+  const searchTerm = searchInput.value.toLowerCase();
+
+  const selectedRegions = Array.from(regionCheckboxes)
+    .filter((checkbox) => checkbox.checked)
+    .map((checkbox) => checkbox.value);
+  
+  const filteredCountries = allCountries.filter((country) => {
+    const matchesSearch = country.name.common.toLowerCase().includes(searchTerm);
+    const matchesRegion = selectedRegions.length === 0 || selectedRegions.includes(country.region);
+    return matchesSearch && matchesRegion;
+  });
+
+  renderCountries(filteredCountries);
+}
+
+searchInput.addEventListener("input", filterData);
+regionCheckboxes.forEach((checkbox) =>
+  checkbox.addEventListener("change", filterData)
+);
+
 function renderCountries(countries) {
   countriesContainer.innerHTML = "";
 
@@ -73,30 +94,3 @@ function renderCountries(countries) {
     countriesContainer.append(countryCard);
   });
 }
-
-regionCheckboxes.forEach((checkbox) => {
-  checkbox.addEventListener("change", applyFilters);
-});
-
-function applyFilters() {
-  const selectedRegions = Array.from(regionCheckboxes)
-    .filter((checkbox) => checkbox.checked)
-    .map((checkbox) => checkbox.value);
-
-  const filteredCountries = allCountries.filter((country) => {
-    //isso aqui tá muito feio Meu Deus
-    if (selectedRegions.length === 0) return true;
-    return selectedRegions.includes(country.region);
-  });
-  renderCountries(filteredCountries);
-}
-
-searchInput.addEventListener("input", (e) => {
-  //console.log(e.target.value);
-  //console.log(allCountries)
-  const searchedCountries = allCountries.filter((country) =>
-    country.name.common.toLowerCase().includes(e.target.value.toLowerCase())
-  );
-  console.log(searchedCountries);
-  renderCountries(searchedCountries);
-});
