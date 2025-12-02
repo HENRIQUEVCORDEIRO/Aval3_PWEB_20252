@@ -11,6 +11,18 @@ const currencies = document.querySelector(".currencies");
 const languages = document.querySelector(".languages");
 const countryArea = document.querySelector(".area");
 const borderCountries = document.querySelector(".border-countries");
+const favoriteBtn = document.getElementById("details-favorite-btn");
+
+//lembrar de fazer as funções modulares para pegar e salvar favoritos no favorites.js
+function getFavorites() {
+  return JSON.parse(localStorage.getItem("favoriteCountries")) || [];
+}
+function isFavorite(countryName) {
+  const favorites = getFavorites();
+  return favorites.some(
+    (country) => country.name.common === countryName
+  );
+}
 
 fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
   .then((res) => res.json())
@@ -56,6 +68,32 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
     }
 
     console.log(country);
+
+    //repetição de código, tentar fazer modular
+    if (isFavorite(country.name.common)) {
+      favoriteBtn.classList.add("favorite");
+      favoriteBtn.innerHTML = "&#10084; Remover dos favoritos";
+    } else {
+      favoriteBtn.classList.remove("favorite");
+      favoriteBtn.innerHTML = "&#9825; Adicionar aos favoritos";
+    }
+
+    favoriteBtn.addEventListener("click", () => {
+      const favorites = getFavorites();
+      const index = favorites.findIndex(
+        (favCountry) => favCountry.name.common === country.name.common
+      );
+      if (index >= 0) {
+        favorites.splice(index, 1);
+        favoriteBtn.classList.remove("favorite");
+        favoriteBtn.innerHTML = "&#9825; Adicionar aos favoritos";
+      } else {
+        favorites.push(country);
+        favoriteBtn.classList.add("favorite");
+        favoriteBtn.innerHTML = "&#10084; Remover dos favoritos";
+      }
+      localStorage.setItem("favoriteCountries", JSON.stringify(favorites));
+    });
 
     if (country.borders) {
       country.borders.forEach((border) => {
