@@ -3,6 +3,8 @@ import { isFavorite, toggleFavorite } from "./favorites.js";
 const countriesContainer = document.querySelector(".container-countries");
 const regionCheckboxes = document.querySelectorAll("input[name='region']");
 const searchInput = document.querySelector(".search-container input");
+const filterBtn = document.getElementById("filter-btn");
+const filterOptions = document.getElementById("filter-options");
 
 let allCountries;
 
@@ -14,6 +16,17 @@ fetch(
     allCountries = data;
     renderCountries(data);
   });
+
+filterBtn.addEventListener("click", (e) => {
+  e.stopPropagation(); 
+  filterOptions.classList.toggle("hidden");
+});
+
+document.addEventListener("click", (e) => {
+  if (!filterOptions.contains(e.target) && e.target !== filterBtn) {
+    filterOptions.classList.add("hidden");
+  }
+});
 
 function renderCountries(countries) {
   countriesContainer.innerHTML = "";
